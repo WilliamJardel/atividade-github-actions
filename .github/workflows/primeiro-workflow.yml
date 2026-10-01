@@ -1,0 +1,22 @@
+name: Meu Primeiro Workflow
+
+on: [push]
+
+jobs:
+  minha-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Executar script e listar arquivos
+        run: |
+          echo "Pipeline executada com sucesso!"
+          echo "Listando os arquivos do diretório atual:"
+          ls -la
